@@ -13,7 +13,7 @@ jobs:
         strategy:
             matrix:
                 os: [ubuntu-latest]
-                version: [0.14.0, ""]
+                version: [0.14.0, 0.15.1, ""]
             fail-fast: false
         runs-on: ${{ matrix.os }}
         steps:
@@ -25,4 +25,4 @@ jobs:
               with:
                   fetch-depth: 0
             - name: Build and test with Zig
-              run: zig build test
+              run: zig build test --summary all
